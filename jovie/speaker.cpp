@@ -411,7 +411,7 @@ int Speaker::say(const QString& appId, const QString& text, int sayOptions)
         }
         else
         {
-            setLanguage(TalkerCode::languageCodeToLanguage(talkerCode.language()));
+            setLanguage(talkerCode.language());
         }
         setVoiceType(talkerCode.voiceType());
         setVolume(talkerCode.volume());

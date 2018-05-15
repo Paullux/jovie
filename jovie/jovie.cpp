@@ -150,7 +150,7 @@ void Jovie::setDefaultTalker(const QString &defaultTalker)
 void Jovie::setCurrentTalker(const TalkerCode &talker)
 {
     Speaker::Instance()->setOutputModule(talker.outputModule());
-    Speaker::Instance()->setLanguage(TalkerCode::languageCodeToLanguage(talker.language()));
+    Speaker::Instance()->setLanguage(talker.language());
     Speaker::Instance()->setVoiceType(talker.voiceType());
     Speaker::Instance()->setVolume(talker.volume());
     Speaker::Instance()->setSpeed(talker.rate());
