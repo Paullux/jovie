@@ -450,6 +450,10 @@ int Speaker::say(const QString& appId, const QString& text, int sayOptions)
             case KSpeech::soSoundIcon: /**< The text is the name of a sound icon. */
                 jobNum = spd_sound_icon(d->connection, spdpriority, filteredText.toUtf8().data());
                 break;
+        default:{
+                kDebug() << "Unknown say option "<< sayOptions;
+                goto exit_loop;
+            }
         }
         if (jobNum == -1 && d->connection != NULL)
         {
@@ -463,7 +467,7 @@ int Speaker::say(const QString& appId, const QString& text, int sayOptions)
             }
         }
     }
-
+    exit_loop: ;//the only way we can exit from a switch inside a loop
     if (jobNum != -1)
     {
         kDebug() << "incoming job with text: " << text;
