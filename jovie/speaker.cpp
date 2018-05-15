@@ -364,6 +364,10 @@ QStringList Speaker::parseText(const QString &text, const QString &appId /*=NULL
 
 int Speaker::say(const QString& appId, const QString& text, int sayOptions)
 {
+    if(text.isNull() || text.isEmpty()){
+        kDebug() << "Speaker::say text was empty";
+        return 0;
+    }
     QString filteredText = text;
     int jobNum = -1;
 
