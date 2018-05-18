@@ -121,6 +121,11 @@ bool Jovie::isSpeaking() const
     return Speaker::Instance()->isSpeaking();
 }
 
+void Jovie::reconnect() const
+{
+    Speaker::Instance()->reconnect();
+}
+
 QString Jovie::version() const
 {
     return KGlobal::mainComponent().aboutData()->version();

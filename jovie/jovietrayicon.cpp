@@ -222,7 +222,16 @@ void JovieTrayIcon::configureSelected()
 {
     QStringList lst;
     lst << QLatin1String( "kcmkttsd" ) << QLatin1String( "--caption" ) << i18n("KDE Text-to-Speech");
-    QProcess::startDetached(QLatin1String( "kcmshell4" ),lst);
+     configProcess = new QProcess(this);
+    connect(configProcess, SIGNAL(finished(int,QProcess::ExitStatus)), this, SLOT(configExit(int,QProcess::ExitStatus)));
+    configProcess->start(QLatin1String( "kcmshell4" ),lst);
+}
+
+void JovieTrayIcon::configExit(int exitCode, QProcess::ExitStatus exitStatus )
+{
+    kDebug()<<"configExit code "<<exitCode;
+    Jovie::Instance()->reconnect();
+    delete configProcess;
 }
 
 void JovieTrayIcon::configureKeysSelected()

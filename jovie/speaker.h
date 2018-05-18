@@ -209,7 +209,7 @@ public:
     QString language();
     int voiceType();
     QString voiceName();
-
+    bool reconnect();
 signals:
     /**
      * This signal is emitted when a new job coming in is filtered (or not filtered if no filters

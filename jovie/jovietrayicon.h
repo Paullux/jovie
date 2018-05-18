@@ -30,6 +30,7 @@
 #include <kmenu.h>
 #include <kstatusnotifieritem.h>
 #include "talkercode.h"
+#include <QProcess>
 class QEvent;
 class KAction;
 
@@ -59,6 +60,7 @@ class JovieTrayIcon: public KStatusNotifierItem
         void resumeSelected();
         void repeatSelected();
         void configureSelected();
+        void configExit(int exitCode,QProcess::ExitStatus exitStatus );
         void configureKeysSelected();
         void aboutSelected();
         void helpSelected();
@@ -72,6 +74,7 @@ class JovieTrayIcon: public KStatusNotifierItem
         KAction* actSpeakClipboard;
         KAction* actConfigure;
         QMenu* talkersMenu;
+        QProcess *configProcess;
     friend class Jovie;
 };
 

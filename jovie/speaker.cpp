@@ -421,7 +421,7 @@ int Speaker::say(const QString& appId, const QString& text, int sayOptions)
         setVolume(talkerCode.volume());
         setSpeed(talkerCode.rate());
         setPitch(talkerCode.pitch());
-	setPunctuationType(talkerCode.punctuation());
+        setPunctuationType(talkerCode.punctuation());
     }
     emit newJobFiltered(text, filteredText);
 
@@ -619,6 +619,11 @@ void Speaker::setVoiceName(const QString & voiceName)
 QString Speaker::voiceName()
 {
     return d->currentTalker.voiceName();
+}
+
+bool Speaker::reconnect()
+{
+    return d->reconnect();
 }
 
 void Speaker::setPunctuationType(int punctuation)

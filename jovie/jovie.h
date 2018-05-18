@@ -67,7 +67,7 @@ public Q_SLOTS: // METHODS
     * @return               True if currently speaking.
     */
     bool isSpeaking() const;
-
+    void reconnect() const;
     /**
     * Returns the version number of KTTSD.
     * @return               Version number string.
